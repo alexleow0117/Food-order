@@ -21,6 +21,26 @@
                         echo $_SESSION['delete']; //Displaying Session Error Message
                         unset($_SESSION['delete']); //Removing Session Error Message
                     }
+
+                    if(isset($_SESSION['no-category-found'])){ //Checking whether the session is set of not
+                        echo $_SESSION['no-category-found']; //Displaying Session Error Message
+                        unset($_SESSION['no-category-found']); //Removing Session Error Message
+                    }
+
+                    if(isset($_SESSION['update'])){ //Checking whether the session is set of not
+                        echo $_SESSION['update']; //Displaying Session Error Message
+                        unset($_SESSION['update']); //Removing Session Error Message
+                    }
+
+                    if(isset($_SESSION['upload'])){ //Checking whether the session is set of not
+                        echo $_SESSION['upload']; //Displaying Session Error Message
+                        unset($_SESSION['upload']); //Removing Session Error Message
+                    }
+
+                    if(isset($_SESSION['failed-remove'])){ //Checking whether the session is set of not
+                        echo $_SESSION['failed-remove']; //Displaying Session Error Message
+                        unset($_SESSION['failed-remove']); //Removing Session Error Message
+                    }
             ?>
 
             <br/><br/>
@@ -87,7 +107,7 @@
                                         <td><?php echo $featured; ?></td>
                                         <td><?php echo $active; ?></td>
                                         <td>
-                                            <a href="<?php echo SITEURL; ?>admin/update-category.php" class="btn-secondary">Update Category</a>
+                                            <a href="<?php echo SITEURL; ?>admin/update-category.php?id=<?php echo $id; ?>" class="btn-secondary">Update Category</a>
                                             <a href="<?php echo SITEURL; ?>admin/delete-category.php?id=<?php echo $id; ?>&image_name=<?php echo $image_name; ?>" class="btn-danger">Delete Category</a>
                                         </td>
                                     </tr>
