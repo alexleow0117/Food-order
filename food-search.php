@@ -6,7 +6,7 @@
             <?php
             
                 //get the search keyword
-                $search=$_POST['search'];
+                $search=mysqli_real_escape_string($conn, $_POST['search']);
 
             ?>
             <h2>Foods on Your Search <a href="#" class="text-white">"<?php echo $search; ?>"</a></h2>
@@ -25,6 +25,7 @@
             <?php
 
                 //sql query to get foods based on search keyword
+                //"SELECT * FROM tbl_food WHERE title LIKE '%$search%' OR description LIKE '%$search%'";
                 $sql="SELECT * FROM tbl_food WHERE title LIKE '%$search%' OR description LIKE '%$search%'";
 
                 //execute the query
@@ -76,7 +77,7 @@
                     }
                 }else{
                     //food not available
-                    echo "<div class='error'>Food Not Added.</div>";
+                    echo "<div class='error'>Food Not Found.</div>";
                 }
             ?>
 
